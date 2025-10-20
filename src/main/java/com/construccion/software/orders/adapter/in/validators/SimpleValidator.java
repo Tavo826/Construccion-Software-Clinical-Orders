@@ -10,13 +10,4 @@ public abstract class SimpleValidator {
         }
         return value;
     }
-
-    public long longValidator(String element, String value) throws Exception {
-        stringValidator(element, value);
-        try {
-            return Long.parseLong(value);
-        } catch (Exception e) {
-            throw new InputsException(element + " debe ser un valor numérico");
-        }
-    }
 }
