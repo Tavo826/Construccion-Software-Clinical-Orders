@@ -31,7 +31,7 @@ public class OrderUseCase {
         return getOrder.getById(id);
     }
 
-    public Order createOrder(Order order) throws Exception {
+    public Order createOrder(Order order) {
 
         return createOrder.create(order);
     }
