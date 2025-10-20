@@ -3,7 +3,7 @@ package com.construccion.software.orders.infrastructure.persistence.entities;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "cotizaciones_rc")
+@Document(collection = "orders")
 public class OrderEntity {
 
     @Id
