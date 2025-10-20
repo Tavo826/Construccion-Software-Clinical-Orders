@@ -55,7 +55,7 @@ public class OrderController {
     }
 
     @DeleteMapping("Orders/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable String id) throws Exception {
+    public ResponseEntity<?> deleteOrder(@PathVariable String id) throws Exception {
 
         orderUseCase.deleteOrder(orderBuilder.getId(id));
 
