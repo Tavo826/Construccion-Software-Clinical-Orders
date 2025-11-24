@@ -1,21 +1,23 @@
 package com.construccion.software.orders.application.usecases;
 
-import com.construccion.software.orders.domain.models.Order;
+import com.construccion.software.orders.domain.models.OrderProcedure;
 import com.construccion.software.orders.domain.services.CreateOrder;
 import com.construccion.software.orders.domain.services.DeleteOrder;
 import com.construccion.software.orders.domain.services.GetOrder;
 import com.construccion.software.orders.domain.services.UpdateOrder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class OrderUseCase {
+public class OrderProcedureUseCase {
 
     private final GetOrder getOrder;
     private final CreateOrder createOrder;
     private final UpdateOrder updateOrder;
     private final DeleteOrder deleteOrder;
 
-    public OrderUseCase(
+    public OrderProcedureUseCase(
             GetOrder getOrder,
             CreateOrder createOrder,
             UpdateOrder updateOrder,
@@ -26,23 +28,28 @@ public class OrderUseCase {
         this.deleteOrder = deleteOrder;
     }
 
-    public Order getOrderById(String id) throws Exception {
+    public OrderProcedure getOrderById(String id) throws Exception {
 
-        return getOrder.getById(id);
+        return getOrder.getProcedureById(id);
     }
 
-    public Order createOrder(Order order) {
+    public List<OrderProcedure> getOrderProcedureByPatientId(long id) throws Exception {
+
+        return getOrder.getOrderProcedureByPatientId(id);
+    }
+
+    public OrderProcedure createOrder(OrderProcedure order) throws Exception {
 
         return createOrder.create(order);
     }
 
-    public Order updateOrder(String id, Order order) throws Exception {
+    public OrderProcedure updateOrder(String id, OrderProcedure order) throws Exception {
 
         return updateOrder.update(id, order);
     }
 
     public void deleteOrder(String id) throws Exception {
 
-        deleteOrder.delete(id);
+        deleteOrder.deleteProcedure(id);
     }
 }
