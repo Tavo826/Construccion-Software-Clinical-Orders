@@ -12,7 +12,10 @@ public class OrderProcedureRequest {
     private String price;
     private boolean requiresSpecialistAssistance;
     private String specialistId;
-
+    private String bloodPressure;
+    private String temperature;
+    private String pulse;
+    private String bloodOxygenLevel;
 
     public String getOrderNumber() {
         return orderNumber;
@@ -92,5 +95,37 @@ public class OrderProcedureRequest {
 
     public void setSpecialistId(String specialistId) {
         this.specialistId = specialistId;
+    }
+
+    public String getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public void setBloodPressure(String bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public String getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
+    }
+
+    public String getPulse() {
+        return pulse;
+    }
+
+    public void setPulse(String pulse) {
+        this.pulse = pulse;
+    }
+
+    public String getBloodOxygenLevel() {
+        return bloodOxygenLevel;
+    }
+
+    public void setBloodOxygenLevel(String bloodOxygenLevel) {
+        this.bloodOxygenLevel = bloodOxygenLevel;
     }
 }

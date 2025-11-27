@@ -69,6 +69,8 @@ public class OrderMapper {
         order.setDiagnosticAssistanceName(entity.getDiagnosticAssistanceName());
         order.setQuantity(entity.getQuantity());
         order.setPrice(entity.getPrice());
+        order.setRequiresSpecialistAssistance(entity.isRequiresSpecialistAssistance());
+        order.setSpecialistId(entity.getSpecialistId());
 
         return order;
     }
@@ -109,6 +111,10 @@ public class OrderMapper {
         order.setPrice(entity.getPrice());
         order.setRequiresSpecialistAssistance(entity.isRequiresSpecialistAssistance());
         order.setSpecialistId(entity.getSpecialistId());
+        order.setBloodPressure(entity.getBloodPressure());
+        order.setTemperature(entity.getTemperature());
+        order.setPulse(entity.getPulse());
+        order.setBloodOxygenLevel(entity.getBloodOxygenLevel());
 
         return order;
     }
@@ -127,6 +133,8 @@ public class OrderMapper {
         entity.setDiagnosticAssistanceName(order.getDiagnosticAssistanceName());
         entity.setQuantity(order.getQuantity());
         entity.setPrice(order.getPrice());
+        entity.setRequiresSpecialistAssistance(order.isRequiresSpecialistAssistance());
+        entity.setSpecialistId(order.getSpecialistId());
 
         return entity;
     }

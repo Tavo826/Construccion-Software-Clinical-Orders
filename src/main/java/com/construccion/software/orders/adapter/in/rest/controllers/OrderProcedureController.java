@@ -18,21 +18,21 @@ import java.util.List;
 public class OrderProcedureController {
 
     private final OrderBuilder orderBuilder;
-    private final OrderProcedureBuilder builder;
     private final OrderProcedureUseCase useCase;
     private final OrderDiagnosticAssistanceBuilder orderDiagnosticAssistanceBuilder;
+    private final OrderProcedureBuilder orderProcedureBuilder;
 
-    public OrderProcedureController(OrderBuilder orderBuilder, OrderProcedureBuilder builder, OrderProcedureUseCase useCase, OrderDiagnosticAssistanceBuilder orderDiagnosticAssistanceBuilder) {
+    public OrderProcedureController(OrderBuilder orderBuilder, OrderProcedureUseCase useCase, OrderDiagnosticAssistanceBuilder orderDiagnosticAssistanceBuilder, OrderProcedureBuilder orderProcedureBuilder) {
         this.orderBuilder = orderBuilder;
-        this.builder = builder;
         this.useCase = useCase;
         this.orderDiagnosticAssistanceBuilder = orderDiagnosticAssistanceBuilder;
+        this.orderProcedureBuilder = orderProcedureBuilder;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/patients/{id}")
     public ResponseEntity<?> getOrderById(@PathVariable String id) throws Exception {
 
-        OrderProcedure order = useCase.getOrderById(orderBuilder.getId(id));
+        List<OrderProcedure> order = useCase.getOrderProcedureByPatientId(orderProcedureBuilder.getPatientId(id));
 
         return ResponseEntity.ok(order);
 
@@ -49,7 +49,7 @@ public class OrderProcedureController {
     @PostMapping()
     public ResponseEntity<?> createOrder(@RequestBody OrderProcedureRequest request) throws Exception {
 
-        OrderProcedure order = builder.build(request);
+        OrderProcedure order = orderProcedureBuilder.build(request);
 
         OrderProcedure createdOrder = useCase.createOrder(order);
 
@@ -60,7 +60,7 @@ public class OrderProcedureController {
     @PatchMapping("/{id}")
     public ResponseEntity<?> updateOrder(@PathVariable String id, @RequestBody OrderProcedureRequest request) throws Exception {
 
-        OrderProcedure order = builder.build(request);
+        OrderProcedure order = orderProcedureBuilder.build(request);
 
         OrderProcedure updatedOrder = useCase.updateOrder(orderBuilder.getId(id), order);
 
