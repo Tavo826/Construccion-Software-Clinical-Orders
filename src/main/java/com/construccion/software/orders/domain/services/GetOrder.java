@@ -41,31 +41,16 @@ public class GetOrder {
 
     public OrderDiagnosticAssistance getDiagnosticAssistanceById(String id) throws Exception {
 
-        OrderDiagnosticAssistance order = orderDiagnosticAssistancePort.findById(id);
-        if (order == null) {
-            throw new OrderNotFoundException("no existe una orden con ese id");
-        }
-
-        return order;
+        return orderDiagnosticAssistancePort.findById(id);
     }
 
     public OrderMedicine getMedicineById(String id) throws Exception {
 
-        OrderMedicine order = orderMedicinePort.findById(id);
-        if (order == null) {
-            throw new OrderNotFoundException("no existe una orden con ese id");
-        }
-
-        return order;
+        return orderMedicinePort.findById(id);
     }
 
     public OrderProcedure getProcedureById(String id) throws Exception {
 
-        OrderProcedure order = orderProcedurePort.findById(id);
-        if (order == null) {
-            throw new OrderNotFoundException("no existe una orden con ese id");
-        }
-
-        return order;
+        return orderProcedurePort.findById(id);
     }
 }

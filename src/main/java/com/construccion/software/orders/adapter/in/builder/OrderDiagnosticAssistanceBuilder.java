@@ -24,6 +24,8 @@ public class OrderDiagnosticAssistanceBuilder {
         order.setDiagnosticAssistanceName(orderValidator.diagnosticAssistanceNameValidator(request.getDiagnosticAssistanceName()));
         order.setQuantity(orderValidator.quantityValidator(request.getQuantity()));
         order.setPrice(orderValidator.priceValidator(request.getPrice()));
+        order.setRequiresSpecialistAssistance(request.isRequiresSpecialistAssistance());
+        order.setSpecialistId(orderValidator.employeeIdValidator(request.getSpecialistId()));
 
         return order;
     }

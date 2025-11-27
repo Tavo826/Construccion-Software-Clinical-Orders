@@ -1,5 +1,7 @@
 package com.construccion.software.orders.adapter.in.rest.request;
 
+import java.time.LocalDate;
+
 public class OrderDiagnosticAssistanceRequest {
 
     private String orderNumber;
@@ -9,6 +11,8 @@ public class OrderDiagnosticAssistanceRequest {
     private String diagnosticAssistanceName;
     private String quantity;
     private String price;
+    private boolean requiresSpecialistAssistance;
+    private String specialistId;
 
     public String getOrderNumber() {
         return orderNumber;
@@ -64,5 +68,21 @@ public class OrderDiagnosticAssistanceRequest {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public boolean isRequiresSpecialistAssistance() {
+        return requiresSpecialistAssistance;
+    }
+
+    public void setRequiresSpecialistAssistance(boolean requiresSpecialistAssistance) {
+        this.requiresSpecialistAssistance = requiresSpecialistAssistance;
+    }
+
+    public String getSpecialistId() {
+        return specialistId;
+    }
+
+    public void setSpecialistId(String specialistId) {
+        this.specialistId = specialistId;
     }
 }

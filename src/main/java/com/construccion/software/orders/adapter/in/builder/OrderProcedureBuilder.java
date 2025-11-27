@@ -27,7 +27,15 @@ public class OrderProcedureBuilder {
         order.setPrice(orderValidator.priceValidator(request.getPrice()));
         order.setRequiresSpecialistAssistance(request.isRequiresSpecialistAssistance());
         order.setSpecialistId(orderValidator.employeeIdValidator(request.getSpecialistId()));
+        order.setBloodPressure(orderValidator.bloodPressureValidator(request.getBloodPressure()));
+        order.setTemperature(orderValidator.temperatureValidator(request.getTemperature()));
+        order.setPulse(orderValidator.pulseValidator(request.getPulse()));
+        order.setBloodOxygenLevel(orderValidator.bloodOxygenValidator(request.getBloodOxygenLevel()));
 
         return order;
+    }
+
+    public long getPatientId(String id) throws Exception {
+        return orderValidator.patientIdValidator(id);
     }
 }
